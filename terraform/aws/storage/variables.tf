@@ -1,4 +1,2 @@
 #---- storage/variables
-variable "project_name" {
-    default = "la-terraform"
-}
+variable "project_name" {}

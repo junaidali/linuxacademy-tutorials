@@ -2,7 +2,7 @@
 
 # create random id
 resource "random_id" "tf_bucket_id" {
-    byte_length = 4
+    byte_length = 2
 }
 
 # create bucket
