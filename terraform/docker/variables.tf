@@ -1,12 +1,13 @@
-# variables
+# image variables
+variable "image" {
+  description = "container image"
+  default = "ghost:latest"
+}
+
+# container variables
 variable "container_name" {
   description = "name of container"
   default = "blog"
-}
-
-variable "image" {
-  description = "image for container"
-  default = "ghost:alpine"
 }
 
 variable "int_port" {
