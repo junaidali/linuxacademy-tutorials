@@ -1,15 +1,36 @@
+# variables
+variable "container_name" {
+  description = "name of container"
+  default = "blog"
+}
+
+variable "image" {
+  description = "image for container"
+  default = "ghost:alpine"
+}
+
+variable "int_port" {
+  description = "internal port for container"
+  default = "2368"
+}
+
+variable "ext_port" {
+  description = "external port for container"
+  default = "80"
+}
+
 # download the ghost image
 resource "docker_image" "image_id" {
-  name = "ghost:alpine"
+  name = "${var.image}"
 }
 
 # run image
 resource "docker_container" "container_id" {
-  name = "blog"
+  name = "${var.container_name}"
   image = "${docker_image.image_id.name}"
   ports {
-     internal = "2368"
-     external = "80"	
+     internal = "${var.int_port}"
+     external = "${var.ext_port}"
   }
 }
 
